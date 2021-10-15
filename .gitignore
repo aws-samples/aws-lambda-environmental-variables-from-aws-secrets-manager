@@ -1,0 +1,18 @@
+#
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+#
+
+# Ignore output and generated content
+*.js
+!jest.config.js
+*.d.ts
+node_modules
+*.zip
+out/
+.cdk.staging
+cdk.out
+
+# Ignore for VS Code and Mac
+.vscode
+.DS_Store

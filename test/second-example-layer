@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# 
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+#
+# Example second layer used for testing purposes
+#
+
+args=("$@")
+
+export SECOND_LAYER_EXECUTE="true"
+
+echo "Args from second layer = ${args[@]}"
+
+exec ${args[@]}
