@@ -6,12 +6,13 @@
 // demonstrate conversion of data from AWS Secrets Manager to Lambda 
 // Environmental Variables
 //
-import * as cdk from '@aws-cdk/core';
-import * as iam from '@aws-cdk/aws-iam';
-import * as lambda from '@aws-cdk/aws-lambda';
+import * as cdk from 'aws-cdk-lib';
+import * as iam from 'aws-cdk-lib/aws-iam';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
+import { Construct } from 'constructs';
 
 export class CdkStack extends cdk.Stack {
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
     const secretArn = new cdk.CfnParameter(this, 'secretArn', {
@@ -55,7 +56,7 @@ export class CdkStack extends cdk.Stack {
 
     // Create the lambda and assign the role and layer
     const func = new lambda.Function(this, 'example-get-secrets-lambda', {
-      runtime: lambda.Runtime.PYTHON_3_8,
+      runtime: lambda.Runtime.PYTHON_3_9,
       handler: 'lambda_function.lambda_handler',
       code: lambda.Code.fromAsset('../out/example-get-secrets-lambda.zip'),
       layers: [getSecretsLayer, secondExampleLayer],

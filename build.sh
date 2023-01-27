@@ -46,4 +46,5 @@ cd ../..
 
 # Now run the CDK to deploy everything
 cd cdk
-cdk deploy --parameters secretArn="${SECRET_ARN}"
+npm install
+npx aws-cdk@2.x deploy --parameters secretArn="${SECRET_ARN}"
